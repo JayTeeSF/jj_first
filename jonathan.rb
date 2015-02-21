@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
 
-answer_for = {
-               'how many people are in north america?' => 200,
-               'who is the best soccer player in the world?' => 'pele',
-               'who is the fastest runner in my school?' => 'jonathan'
-              }
+require 'csv'
+def load_from(file_name)
+  CSV.read(file_name)[1..-1]
+end
+
+answer_for = load_from('questions_and_answers.csv')
 
 answer_for.each { |question, answer|
      print "#{question} "
@@ -16,4 +17,4 @@ answer_for.each { |question, answer|
      else
        puts "better luck next time #{answer}"
      end
-}
+};0
